@@ -17,6 +17,8 @@ These installers target Premiere Pro 2025 and later with CEP 12. Intel Macs and 
 
 **Installation warnings:** these installers use the free distribution option. The Adobe CEP extension is signed and verified, but the native installers have no Apple Developer ID/notarisation or Windows publisher signatures. Windows may offer **More info → Run anyway**; macOS may require **System Settings → Privacy & Security → Open Anyway**. Follow the [Windows warning steps](docs/INSTALLATION.md#windows) or [Mac warning steps](docs/INSTALLATION.md#mac). Some managed computers require IT approval.
 
+**Prerelease:** save a copy of your project before applying alignment. Review the preview and listen to the result; beat positions and bar numbers are estimates. Support is best-effort. See the [tested platforms and limits](docs/TESTING.md).
+
 ## Use
 
 1. Select the music clip on your timeline and click **Analyse selected clip**. Timing can recover a consistent pulse or follow the detected performance.
@@ -28,6 +30,12 @@ Alignment uses this tool’s beat markers on music clips in the active sequence.
 **Remove from selected** removes only this tool's beat markers on selected music sources. **Undo** in each section restores the previous whole marker or alignment operation. CEP cannot make the entire operation one native Premiere Ctrl/Cmd+Z step; use the panel's Undo buttons.
 
 Beat detection and bar numbering are estimates. Review difficult intros, variable tempo, syncopation and unusual metres before committing an edit. Marker placement is rounded to sequence frames.
+
+## Help and licence
+
+Use the bug-report template in **Issues** and include your versions, package filename and a small reproducible example. Share only media you have permission to distribute and remove personal information from logs. See [SECURITY.md](SECURITY.md) for security reports.
+
+Beat Marker source uses MIT, which permits reuse, modification and redistribution, including commercial reuse, while retaining the licence notice. Third-party components retain their own licences. This is an independent project and is not affiliated with or endorsed by Adobe.
 
 ## Project
 
