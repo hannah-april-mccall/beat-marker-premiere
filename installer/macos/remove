@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+if [ "$(id -u)" = 0 ]; then exit 1; fi
+if /usr/bin/pgrep -f '/Adobe Premiere Pro [0-9]+\.app/Contents/MacOS/Adobe Premiere Pro' >/dev/null; then
+  echo 'Quit Premiere Pro before removing Beat Marker.' >&2
+  exit 1
+fi
+bm_data="$HOME/Library/Application Support/Beat Marker/Premiere"
+bm_destination="$HOME/Library/Application Support/Adobe/CEP/extensions/com.hannah.beatmarker"
+if [ -e "$bm_destination" ] || [ -L "$bm_destination" ]; then
+  /usr/bin/grep -q 'ExtensionBundleId="com.hannah.beatmarker"' "$bm_destination/CSXS/manifest.xml"
+  /bin/mkdir -p "$bm_data/uninstalled-extensions"
+  /bin/mv "$bm_destination" "$bm_data/uninstalled-extensions/$(date +%Y%m%d-%H%M%S)-$$"
+fi
+/usr/bin/printf '%s\n' '{"installed":false,"savedUserDataPreserved":true}' > "$bm_data/installation.json"
