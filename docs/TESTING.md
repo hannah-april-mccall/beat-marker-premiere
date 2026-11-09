@@ -1,6 +1,6 @@
 # Release verification — 0.6.0
 
-Checked on 9 November 2026. These checks cover the exact generated installers; public-download OS publisher verification remains outstanding.
+Checked on 9 November 2026. These checks cover the exact generated installers. They use the free distribution option without OS publisher signing or Mac notarisation; see the installation guide for warning approval steps. The browser-downloaded, quarantined installation path has not been separately verified on a clean computer.
 
 | Check | Mac | Windows |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ Checked on 9 November 2026. These checks cover the exact generated installers; p
 | Panel Undo restores linked video and audio | Covered by host tests | Passed, 14 clips restored |
 | Recoverable native removal and reinstall | Passed; saved data retained | Not yet separately exercised |
 
-Mac installation was tested on macOS 26.6.2, Apple Silicon. The FFmpeg executables were rebuilt with a macOS 14.0 minimum; all inspected frozen native libraries had lower minimum versions. A macOS 14 machine has not been separately tested. Windows UI testing used the supplied office PC through Parsec and a generated-media project.
+Mac installation was tested on macOS 26.6.2, Apple Silicon. The FFmpeg executables were rebuilt with a macOS 14.0 minimum; all inspected frozen native libraries had lower minimum versions. A macOS 14 machine has not been separately tested. Windows UI testing used a Windows 11 PC and a generated-media project.
 
 51 JavaScript tests passed. Nine Python rhythm-recovery tests passed; one optional check using a local historical cache was skipped. The relocated engine integration check ran twice, verified cache reuse, and compared every file's content before and after analysis to ensure the signed installation stayed unchanged. Paths containing spaces and `&` were included. No test music, private project files, signing credentials or local analysis caches are included in the repository or installers.
 
