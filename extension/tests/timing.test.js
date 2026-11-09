@@ -1,0 +1,13 @@
+const assert = require('node:assert/strict');
+const {mapBeats} = require('../js/timing.js');
+const a={beats:[{time:4.5,beat:4,bar:1},{time:5,beat:1,bar:2},{time:5.5,beat:2,bar:2},{time:7.25,beat:3,bar:2},{time:10,beat:1,bar:3}]};
+const clip={start:30,end:35,inPoint:5,outPoint:10,speed:1,reversed:false,zeroPoint:'914457600000000'};
+assert.deepEqual(mapBeats(a,clip,'all').map(b=>b.time),[30,30.5,32.25]);
+assert.deepEqual(mapBeats(a,clip,'3').map(b=>b.time),[32.25]);
+assert.deepEqual(mapBeats(a,clip,'1').map(b=>b.time),[30]);
+assert.deepEqual(mapBeats(a,{...clip,start:42,end:47},'all').map(b=>b.time),[42,42.5,44.25]);
+assert.equal(mapBeats(a,clip,'all')[0].name,'♩ 1');
+assert.throws(()=>mapBeats(a,{...clip,speed:2},'all'),/normal-speed/);
+assert.throws(()=>mapBeats(a,{...clip,reversed:true},'all'),/normal-speed/);
+assert.throws(()=>mapBeats(a,{...clip,inPoint:NaN},'all'),/invalid timing/);
+console.log('PASS: clip offset, source trim, exclusive out-point, moved clip, beat filters, note names, display-timecode independence, unsupported speed/reverse.');
