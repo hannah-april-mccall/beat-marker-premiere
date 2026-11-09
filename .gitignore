@@ -1,0 +1,11 @@
+.build/
+.private/
+dist/
+extension/runtime/
+__pycache__/
+*.pyc
+*.p12
+*.pfx
+*.key
+*.pem
+
