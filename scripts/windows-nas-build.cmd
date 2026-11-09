@@ -17,4 +17,4 @@ if not "%bm_status%"=="0" (
 )
 if not exist "%bm_share%windows-dist" mkdir "%bm_share%windows-dist"
 copy /y dist\* "%bm_share%windows-dist\" >nul
-echo Installer copied to the Unit3 Beat Marker test folder.
+echo Installer copied to the shared Beat Marker build folder.
