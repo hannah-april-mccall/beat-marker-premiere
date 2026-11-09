@@ -15,7 +15,7 @@ Quit Premiere Pro, run the installer for your own user account, then open a proj
 
 These installers target Premiere Pro 2025 and later with CEP 12. Intel Macs and Windows ARM are not included in this release. See [installation instructions](docs/INSTALLATION.md) for paths and removal.
 
-**Signing:** the Adobe CEP extension is signed and verified. The native installer wrappers do not yet have Apple Developer ID/notarisation or Windows Authenticode publisher signatures. Operating-system download warnings are separate from Adobe's extension verification. Public distribution with the usual verified-publisher experience needs those additional signing identities.
+**Installation warnings:** these installers use the free distribution option. The Adobe CEP extension is signed and verified, but the native installers have no Apple Developer ID/notarisation or Windows publisher signatures. Windows may offer **More info → Run anyway**; macOS may require **System Settings → Privacy & Security → Open Anyway**. Follow the [Windows warning steps](docs/INSTALLATION.md#windows) or [Mac warning steps](docs/INSTALLATION.md#mac). Some managed computers require IT approval.
 
 ## Use
 
