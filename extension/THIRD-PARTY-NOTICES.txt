@@ -1,0 +1,19 @@
+Beat This! 1.1.0 and published final0 weights
+Copyright (c) 2024 Institute of Computational Perception, JKU Linz, Austria
+https://github.com/CPJKU/beat_this
+Released by the authors under MIT. The authors note that training recordings have their own rights and licences.
+Official checkpoint SHA-256: 8c328b45f59d8dd3dff219253ff6a8d6482be57d0133a29140e2febbf8eb8331
+
+CSInterface.js — Adobe CEP SDK
+Copyright Adobe Systems Incorporated. Original licence header is retained in js/CSInterface.js.
+https://github.com/Adobe-CEP/CEP-Resources
+
+json2.js — Douglas Crockford, Public Domain
+Original notice is retained in jsx/json2.js.
+https://github.com/douglascrockford/JSON-js
+
+The bundled private Python runtime, PyTorch, Torchaudio, NumPy and other dependencies retain their licence notices in runtime/licenses. The engine and model run locally; no separate Python installation is needed.
+
+FFmpeg 7.1.2 and FFprobe are bundled with GPL and nonfree features disabled. Their LGPL notices, corresponding FFmpeg source archive, build script and build configuration are included in runtime/licenses/FFmpeg. They are separate command-line programs, not linked into the extension.
+
+No test songs or footage are included in the installer.
