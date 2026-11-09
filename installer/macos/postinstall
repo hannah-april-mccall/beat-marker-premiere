@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+bm_data="$HOME/Library/Application Support/Beat Marker/Premiere"
+bm_destination="$HOME/Library/Application Support/Adobe/CEP/extensions/com.hannah.beatmarker"
+/bin/mkdir -p "$bm_data/jobs"
+if /usr/bin/env -u PYTHONHOME -u PYTHONPATH -u DYLD_LIBRARY_PATH -u DYLD_FRAMEWORK_PATH PATH=/usr/bin:/bin "$bm_destination/runtime/engine/beat-marker-engine" --version > "$bm_data/installed-engine.json" 2> "$bm_data/installer-engine.log"; then
+  /usr/bin/printf '%s\n' '{"version":"0.6.0","installed":true,"engineChecked":true}' > "$bm_data/installation.json"
+  /bin/rm -f "$bm_data/pending-install-backup.txt"
+else
+  bm_failed="$bm_data/installation-backups/failed-$(date +%Y%m%d-%H%M%S)-$$"
+  /bin/mv "$bm_destination" "$bm_failed"
+  if [ -f "$bm_data/pending-install-backup.txt" ]; then
+    IFS= read -r bm_backup < "$bm_data/pending-install-backup.txt"
+    case "$bm_backup" in "$bm_data/installation-backups/"*) /bin/mv "$bm_backup" "$bm_destination" ;; esac
+  fi
+  echo 'The bundled engine did not start. The previous extension has been restored where available.' >&2
+  exit 1
+fi
