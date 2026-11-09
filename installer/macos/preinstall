@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+if [ "$(id -u)" = 0 ]; then
+  echo 'Install Beat Marker for the current user, without running Installer as root.' >&2
+  exit 1
+fi
+if /usr/bin/pgrep -f '/Adobe Premiere Pro [0-9]+\.app/Contents/MacOS/Adobe Premiere Pro' >/dev/null; then
+  echo 'Quit Premiere Pro before installing Beat Marker.' >&2
+  exit 1
+fi
+bm_data="$HOME/Library/Application Support/Beat Marker/Premiere"
+bm_destination="$HOME/Library/Application Support/Adobe/CEP/extensions/com.hannah.beatmarker"
+/bin/mkdir -p "$bm_data/installation-backups" "$bm_data/jobs"
+if [ -e "$bm_destination" ] || [ -L "$bm_destination" ]; then
+  if ! /usr/bin/grep -q 'ExtensionBundleId="com.hannah.beatmarker"' "$bm_destination/CSXS/manifest.xml"; then
+    echo 'The destination contains an unrecognised extension. Nothing was replaced.' >&2
+    exit 1
+  fi
+  for bm_name in last-marker-write.json last-edit-alignment.json; do
+    if [ -f "$bm_destination/jobs/$bm_name" ] && [ ! -e "$bm_data/jobs/$bm_name" ]; then
+      /bin/cp "$bm_destination/jobs/$bm_name" "$bm_data/jobs/$bm_name"
+    fi
+  done
+  bm_backup="$bm_data/installation-backups/$(date +%Y%m%d-%H%M%S)-$$"
+  /bin/mv "$bm_destination" "$bm_backup"
+  /usr/bin/printf '%s\n' "$bm_backup" > "$bm_data/pending-install-backup.txt"
+fi
