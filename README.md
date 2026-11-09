@@ -4,12 +4,12 @@ Find musical beats and downbeats, add numbered clip markers, and align edits to 
 
 ## Install
 
-Download the installer matching your computer from this repository's **Releases** page. The green **Code → Download ZIP** button downloads source code, not the ready-to-use extension.
+Download the installer matching your computer from this repository's [Releases](https://github.com/hannah-april-mccall/beat-marker-premiere/releases/tag/v0.6.0) page. The green **Code → Download ZIP** button downloads source code, not the ready-to-use extension.
 
 | Computer | Download |
 | --- | --- |
-| Apple Silicon Mac, macOS 14 or later | `beat-marker-premiere-0.6.0-macos-arm64.pkg` |
-| Intel or AMD Windows 64-bit PC | `beat-marker-premiere-0.6.0-windows-x64-setup.exe` |
+| Apple Silicon Mac, macOS 14 or later | [Download for Mac](https://github.com/hannah-april-mccall/beat-marker-premiere/releases/download/v0.6.0/beat-marker-premiere-0.6.0-macos-arm64.pkg) |
+| Intel or AMD Windows 64-bit PC | [Download for Windows](https://github.com/hannah-april-mccall/beat-marker-premiere/releases/download/v0.6.0/beat-marker-premiere-0.6.0-windows-x64-setup.exe) |
 
 Quit Premiere Pro, run the installer for your own user account, then open a project and choose **Window → Extensions → Beat Marker**. The panel, analysis engine, model, FFmpeg and FFprobe are included. You do not need Python, Blender, a ZXP installer or PlayerDebugMode.
 
